@@ -170,4 +170,4 @@ env.bak/
 venv.bak/
 pip-selfcheck.json
 
-data/*
+scraper/data/*
