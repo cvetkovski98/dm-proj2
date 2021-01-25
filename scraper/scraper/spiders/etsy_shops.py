@@ -6,12 +6,12 @@ from ..items import EtsyShopItem
 
 class EtsyShopSpider(scrapy.Spider):
     name = 'etsy_shops'
-    # start_urls = [
-    #     'https://www.etsy.com/search/shops?page=' + str(i) for i in range(1, 1200)
-    # ]
     start_urls = [
-        f'https://www.etsy.com/shop/{l}' for l in pd.read_csv('products_final.csv')['productShop']
+        'https://www.etsy.com/search/shops?page=' + str(i) for i in range(1, 1200)
     ]
+    # start_urls = [
+    #     f'https://www.etsy.com/shop/{l}' for l in pd.read_csv('products_final.csv')['productShop']
+    # ]
 
     def parse(self, response, **kwargs):
         links = response.css('.wt-card a::attr(href)').extract()
